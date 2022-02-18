@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Sign } from "../components/Sign";
 import { api } from "../services/api";
+import { login } from "../utils/login";
 
 export function SignUp() {
   const [name, setName] = useState("");
@@ -21,12 +22,7 @@ export function SignUp() {
     const response = await api.post("/users", { name, email, password });
 
     if (response.status === 200) {
-      const loginResponse = await api.post("/login", { email, password });
-      if (loginResponse.status === 200) {
-        navigate("/users", { replace: true });
-      } else {
-        navigate("/", { replace: true });
-      }
+      await login({ email, password, navigate });
     }
   }
 

@@ -5,10 +5,12 @@ import {
   Link as ChakraLink,
   Text,
 } from "@chakra-ui/react";
+import { setCookie } from "nookies";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Sign } from "../components/Sign";
 import { api } from "../services/api";
+import { login } from "../utils/login";
 
 export function SignIn() {
   const [email, setEmail] = useState("");
@@ -17,14 +19,7 @@ export function SignIn() {
   let navigate = useNavigate();
 
   async function handleSubmit() {
-    const response = await api.post("/login", {
-      email,
-      password,
-    });
-
-    if (response.status === 200) {
-      navigate("/users", { replace: true });
-    }
+    await login({ email, password, navigate });
   }
 
   return (
