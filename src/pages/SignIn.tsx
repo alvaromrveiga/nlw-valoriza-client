@@ -1,13 +1,12 @@
 import {
   FormControl,
   Input,
-  VStack,
   Link as ChakraLink,
   Text,
+  VStack,
 } from "@chakra-ui/react";
-import { setCookie } from "nookies";
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Sign } from "../components/Sign";
 import { api } from "../services/api";
 import { login } from "../utils/login";
@@ -51,7 +50,7 @@ export function SignIn() {
             _placeholder={{ color: "gray.600" }}
           />
 
-          <ChakraLink>
+          <ChakraLink as="span">
             <Link to="/signup">
               <Text fontWeight="400" fontSize="0.75rem">
                 Não tem uma conta? Cadastre-se

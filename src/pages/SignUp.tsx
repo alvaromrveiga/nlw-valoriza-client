@@ -67,7 +67,7 @@ export function SignUp() {
             _placeholder={{ color: "gray.600" }}
           />
 
-          <ChakraLink>
+          <ChakraLink as="span">
             <Link to="/">
               <Text fontWeight="400" fontSize="0.75rem">
                 Voltar para o Login
