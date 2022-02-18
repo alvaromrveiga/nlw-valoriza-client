@@ -15,6 +15,7 @@ export async function login({ email, password, navigate }: LoginProps) {
     setCookie(null, "token", loginResponse.data, {
       maxAge: 60 * 60 * 24, // 1 day
       path: "/",
+      sameSite: "Lax",
     });
 
     navigate("/users", { replace: true });
