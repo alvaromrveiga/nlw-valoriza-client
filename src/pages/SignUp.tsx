@@ -7,6 +7,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { HiUserAdd } from "react-icons/hi";
 import { Sign } from "../components/Sign";
 import { api } from "../services/api";
 import { login } from "../utils/login";
@@ -27,9 +28,9 @@ export function SignUp() {
   }
 
   return (
-    <Sign title="Cadastro" handleSubmit={() => handleSubmit()}>
+    <Sign icon={HiUserAdd} title="Cadastro" handleSubmit={() => handleSubmit()}>
       <FormControl isRequired>
-        <VStack spacing="3vh" mb="7vh">
+        <VStack spacing="3vh">
           <Input
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -40,7 +41,6 @@ export function SignUp() {
             type="name"
             placeholder="Nome"
             _placeholder={{ color: "gray.600" }}
-            mt="2vh"
           />
 
           <Input

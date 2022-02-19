@@ -8,7 +8,6 @@ import {
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Sign } from "../components/Sign";
-import { api } from "../services/api";
 import { login } from "../utils/login";
 
 export function SignIn() {
@@ -24,7 +23,7 @@ export function SignIn() {
   return (
     <Sign title="Login" handleSubmit={() => handleSubmit()}>
       <FormControl isRequired>
-        <VStack spacing="3vh" mb="7vh">
+        <VStack spacing="3vh">
           <Input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -35,7 +34,6 @@ export function SignIn() {
             type="email"
             placeholder="E-mail"
             _placeholder={{ color: "gray.600" }}
-            mt="2vh"
           />
 
           <Input
