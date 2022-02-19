@@ -3,6 +3,7 @@ import {
   Input,
   Link as ChakraLink,
   Text,
+  useToast,
   VStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
@@ -15,9 +16,18 @@ export function SignIn() {
   const [password, setPassword] = useState("");
 
   let navigate = useNavigate();
+  const toast = useToast();
 
   async function handleSubmit() {
-    await login({ email, password, navigate });
+    await login({ email, password, navigate }).catch(() => {
+      toast({
+        title: "Erro de login",
+        description:
+          "E-mail ou senha incorretos, verifique suas credenciais e tente novamente",
+        status: "error",
+        isClosable: true,
+      });
+    });
   }
 
   return (
