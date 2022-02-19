@@ -1,14 +1,15 @@
 import { Button, Flex, Icon, Text, VStack } from "@chakra-ui/react";
 import { ReactElement } from "react";
-import { HiUserAdd } from "react-icons/hi";
+import { IconType } from "react-icons";
 
 interface SignProps {
+  icon?: IconType;
   title: string;
   children: ReactElement;
   handleSubmit: () => void;
 }
 
-export function Sign({ title, children, handleSubmit }: SignProps) {
+export function Sign({ icon, title, children, handleSubmit }: SignProps) {
   return (
     <Flex w="100vw" h="100vh" justify="center" align="center">
       <VStack borderRadius="3xl" w={["90vw", "25vw"]} h={["90vh", "70vh"]}>
@@ -21,8 +22,9 @@ export function Sign({ title, children, handleSubmit }: SignProps) {
           align="center"
           backgroundColor="#a645ad60"
         >
-          <Icon as={HiUserAdd} w="35%" h="25%" mb="3vh" />
-          <Text fontWeight="700" fontSize={["1rem", "1.75rem"]}>
+          {icon && <Icon as={icon} w="35%" h="25%" mb="3vh" />}
+
+          <Text fontWeight="700" fontSize={["1rem", "1.75rem"]} pb="2vh">
             {title}
           </Text>
           {children}
