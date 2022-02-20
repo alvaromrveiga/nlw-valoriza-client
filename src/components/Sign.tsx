@@ -1,5 +1,6 @@
 import { Button, Flex, Icon, Spinner, Text, VStack } from "@chakra-ui/react";
 import React, { ReactElement } from "react";
+import { SubmitHandler } from "react-hook-form";
 import { IconType } from "react-icons";
 
 interface SignProps {
@@ -7,7 +8,7 @@ interface SignProps {
   title: string;
   children: ReactElement;
   isLoading: boolean;
-  handleSign: any;
+  handleSign: SubmitHandler<any>;
 }
 
 export function Sign({
@@ -20,7 +21,7 @@ export function Sign({
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    handleSign();
+    handleSign("");
   }
 
   return (
