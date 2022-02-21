@@ -25,7 +25,15 @@ export function Sign({
   }
 
   return (
-    <Flex w="100vw" h="100vh" justify="center" align="center">
+    <Flex
+      w="100vw"
+      h="100vh"
+      justify="center"
+      align="center"
+      backgroundImage="fundo.png"
+      backgroundSize="cover"
+      backgroundRepeat="no-repeat"
+    >
       <VStack
         borderRadius="3xl"
         w={["90vw", "25vw"]}
@@ -39,7 +47,7 @@ export function Sign({
           h="87%"
           justify="center"
           align="center"
-          backgroundColor="#a645ad60"
+          backgroundColor="#dccae090"
         >
           {icon && <Icon as={icon} w="35%" h="25%" mb="3vh" />}
 
@@ -55,7 +63,7 @@ export function Sign({
           borderRadius="3xl"
           fontWeight="700"
           fontSize={["1rem", "1.75rem"]}
-          backgroundColor="#a645ad60"
+          backgroundColor="#dccae090"
           onClick={handleSubmit}
         >
           {isLoading ? <Spinner /> : "Próximo"}
