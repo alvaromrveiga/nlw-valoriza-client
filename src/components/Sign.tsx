@@ -1,11 +1,11 @@
-import { Button, Flex, Icon, Spinner, Text, VStack } from "@chakra-ui/react";
+import { Button, Flex, Image, Spinner, Text, VStack } from "@chakra-ui/react";
 import React, { ReactElement } from "react";
 import { SubmitHandler } from "react-hook-form";
-import { IconType } from "react-icons";
 
 interface SignProps {
-  icon?: IconType;
+  icon?: string;
   title: string;
+  buttonText: string;
   children: ReactElement;
   isLoading: boolean;
   handleSign: SubmitHandler<any>;
@@ -14,6 +14,7 @@ interface SignProps {
 export function Sign({
   icon,
   title,
+  buttonText,
   children,
   isLoading,
   handleSign,
@@ -26,6 +27,7 @@ export function Sign({
 
   return (
     <Flex
+      direction="column"
       w="100vw"
       h="100vh"
       justify="center"
@@ -34,10 +36,20 @@ export function Sign({
       backgroundSize="cover"
       backgroundRepeat="no-repeat"
     >
+      {icon && (
+        <Image
+          position="absolute"
+          src={icon}
+          w="7rem"
+          h="7rem"
+          top={["3vh", "6vh"]}
+        />
+      )}
+
       <VStack
         borderRadius="3xl"
         w={["90vw", "25vw"]}
-        h={["90vh", "70vh"]}
+        h={["90vh", "80vh"]}
         as="form"
       >
         <Flex
@@ -49,8 +61,6 @@ export function Sign({
           align="center"
           backgroundColor="#dccae090"
         >
-          {icon && <Icon as={icon} w="35%" h="25%" mb="3vh" />}
-
           <Text fontWeight="700" fontSize={["1rem", "1.75rem"]} pb="2vh">
             {title}
           </Text>
@@ -66,7 +76,7 @@ export function Sign({
           backgroundColor="#dccae090"
           onClick={handleSubmit}
         >
-          {isLoading ? <Spinner /> : "Próximo"}
+          {isLoading ? <Spinner /> : buttonText}
         </Button>
       </VStack>
     </Flex>

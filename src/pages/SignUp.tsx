@@ -1,7 +1,6 @@
 import { Link as ChakraLink, Text, VStack } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { HiUserAdd } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { Input } from "../components/Input";
@@ -44,8 +43,9 @@ export function SignUp() {
 
   return (
     <Sign
-      icon={HiUserAdd}
+      icon={"login.png"}
       title="Cadastro"
+      buttonText="Próximo"
       isLoading={formState.isSubmitting}
       handleSign={handleSubmit(handleSignUp)}
     >
