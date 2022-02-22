@@ -45,6 +45,7 @@ export function SignIn() {
   return (
     <Sign
       title="Login"
+      buttonText="Entrar"
       isLoading={formState.isSubmitting}
       handleSign={handleSubmit(handleSignIn)}
     >
