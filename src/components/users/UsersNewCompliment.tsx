@@ -46,10 +46,13 @@ export function UsersNewCompliment({
   selectedUserId,
   selectedTagId,
 }: UsersNewComplimentProps) {
-  const { register, handleSubmit, formState, reset } =
+  const { register, handleSubmit, formState, reset, setValue } =
     useForm<ComplimentFormData>({
       resolver: yupResolver(complimentFormSchema),
     });
+
+  setValue("user_receiver", selectedUserId);
+  setValue("tag_id", selectedTagId);
 
   const toast = useToast();
 
@@ -129,26 +132,24 @@ export function UsersNewCompliment({
             </Text>
             <VStack w="75%" spacing="5vh" as="form">
               <Input
-                value={selectedUserId}
                 variant="filled"
                 size="sm"
                 id="userReceiver"
                 type="text"
-                placeholder="ID"
+                placeholder="Clique no usuário"
                 _placeholder={{ color: "gray.600" }}
-                _focus={{ background: "#a6a6a6" }}
+                _focus={{ background: "gray.300" }}
                 error={formState.errors.user_receiver}
                 {...register("user_receiver")}
               />
               <Input
-                value={selectedTagId}
                 variant="filled"
                 size="sm"
                 id="tagId"
                 type="text"
-                placeholder="Tag"
+                placeholder="Clique na tag"
                 _placeholder={{ color: "gray.600" }}
-                _focus={{ background: "#a6a6a6" }}
+                _focus={{ background: "gray.300" }}
                 error={formState.errors.tag_id}
                 {...register("tag_id")}
               />
@@ -160,7 +161,7 @@ export function UsersNewCompliment({
                 id="message"
                 placeholder="Mensagem"
                 _placeholder={{ color: "gray.600" }}
-                _focus={{ background: "#a6a6a6" }}
+                _focus={{ background: "gray.300" }}
                 error={formState.errors.message}
                 {...register("message")}
               />
