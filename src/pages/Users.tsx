@@ -1,65 +1,35 @@
-import { parseCookies } from "nookies";
-import { useEffect, useState } from "react";
-import { api } from "../services/api";
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  admin: boolean;
-  created_at: string;
-  updated_at: string;
-}
-
-interface Tag {
-  id: string;
-  name: string;
-  name_custom: string;
-  created_at: string;
-  updated_at: string;
-}
+import { Flex } from "@chakra-ui/react";
+import { useState } from "react";
+import { UsersCompliments } from "../components/users/UsersCompliments";
+import { UsersNewCompliment } from "../components/users/UsersNewCompliment";
+import { UsersRegisteredInfo } from "../components/users/UsersRegisteredInfo";
 
 export function Users() {
-  const [users, setUsers] = useState<User[]>([]);
-  const [tags, setTags] = useState<Tag[]>([]);
-
-  useEffect(() => {
-    const { token } = parseCookies();
-
-    async function fetchApi() {
-      const usersResponse = await api.get("/users", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-
-      const tagsResponse = await api.get("/tags", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-
-      setUsers(usersResponse.data);
-      setTags(tagsResponse.data);
-    }
-
-    fetchApi();
-  }, []);
+  const [shouldUpdate, setShouldUpdate] = useState(false);
+  const [selectedUserId, setSelectedUserId] = useState("");
+  const [selectedTagId, setSelectedTagId] = useState("");
 
   return (
-    <>
-      <span>
-        {users.map((user) => {
-          return (
-            <>
-              <p key={user.id}>{user.name}</p>
-              <p>{user.email}</p>
-              <br />
-            </>
-          );
-        })}
-      </span>
-      <>
-        {tags.map((tag) => {
-          return <p key={tag.id}>{tag.name}</p>;
-        })}
-      </>
-    </>
+    <Flex
+      w="100vw"
+      h="100vh"
+      background="linear-gradient(90deg, rgba(215,41,232,1) 0%, rgba(180,60,255,1) 50%, rgba(63,24,154,1) 100%)"
+      justify="center"
+      align="center"
+    >
+      <UsersCompliments update={shouldUpdate} />
+
+      <UsersNewCompliment
+        update={shouldUpdate}
+        setUpdate={setShouldUpdate}
+        selectedUserId={selectedUserId}
+        selectedTagId={selectedTagId}
+      />
+
+      <UsersRegisteredInfo
+        selectUserId={setSelectedUserId}
+        selectTagId={setSelectedTagId}
+      />
+    </Flex>
   );
 }
