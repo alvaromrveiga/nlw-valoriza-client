@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Flex,
-  Icon,
   Image,
   Spinner,
   Text,
@@ -12,7 +11,6 @@ import {
 import { yupResolver } from "@hookform/resolvers/yup";
 import { parseCookies } from "nookies";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { BiUserCircle } from "react-icons/bi";
 import * as yup from "yup";
 import { api } from "../../services/api";
 import { Input } from "../Input";
