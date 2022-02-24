@@ -13,7 +13,8 @@ export function Users() {
     <Flex
       w="100vw"
       h="100vh"
-      background="linear-gradient(90deg, rgba(215,41,232,1) 0%, rgba(180,60,255,1) 50%, rgba(63,24,154,1) 100%)"
+      backgroundImage="fundoDashboard.png"
+      backgroundSize="100% 100%"
       justify="center"
       align="center"
     >
