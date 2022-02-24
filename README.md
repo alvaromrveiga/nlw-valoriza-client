@@ -6,15 +6,15 @@
 
 ## 📑 Tabela de conteúdos
 <!--ts-->
-   * [📚 Demo](#demo)
-   * [🔧 Instalação](#instalação)
-   * [💻 Tecnologias](#tecnologias)
+   * [📚 Demo](#-demo)
+   * [🔧 Instalação](#-instalação)
+   * [💻 Tecnologias](#-tecnologias)
 <!--te-->
 
-## Demo
+## 📚 Demo
 [Demonstração hospedada na Netflify](https://serene-hermann-d1b18e.netlify.app)
 
-## Instalação
+## 🔧 Instalação
 
 ```bash
 # Clona o projeto para sua máquina
@@ -30,4 +30,4 @@ yarn
 yarn start
 ```
 
-## Tecnologias
+## 💻 Tecnologias
