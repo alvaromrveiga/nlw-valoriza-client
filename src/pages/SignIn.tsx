@@ -18,10 +18,9 @@ interface SignInFormData {
 }
 
 export function SignIn() {
-  const { register, handleSubmit, formState, trigger } =
-    useForm<SignInFormData>({
-      resolver: yupResolver(signInFormSchema),
-    });
+  const { register, handleSubmit, formState } = useForm<SignInFormData>({
+    resolver: yupResolver(signInFormSchema),
+  });
 
   let navigate = useNavigate();
   const toast = useToast();
