@@ -73,7 +73,7 @@ export function SignIn() {
 
         <ChakraLink as="span">
           <Link to="/signup">
-            <Text fontWeight="400" fontSize="0.75rem">
+            <Text fontWeight="400" fontSize="0.75rem" textAlign="center">
               Não tem uma conta? Cadastre-se
             </Text>
           </Link>
