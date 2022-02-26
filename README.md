@@ -45,7 +45,7 @@ yarn start
 ## 💻 Tecnologias
  - [Typescript](https://www.typescriptlang.org/) e [React](https://reactjs.org/)
  - [Netlify](https://www.netlify.com/) - deploy
- - [Chakra UI](https://chakra-ui.com/) - interface gráfica
+ - [Chakra UI](https://chakra-ui.com/) - interface gráfica responsiva
  - [React Router Dom](https://reactrouter.com/) - rotas da aplicação
  - [React Hook Form](https://react-hook-form.com/) - controle e validação de formulários
  - [Yup](https://github.com/jquense/yup) - validação dos dados nos formulários
