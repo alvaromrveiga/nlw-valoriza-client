@@ -1,12 +1,4 @@
-import {
-  Button,
-  Flex,
-  Image,
-  Spinner,
-  Text,
-  useBreakpointValue,
-  VStack,
-} from "@chakra-ui/react";
+import { Button, Flex, Image, Spinner, Text, VStack } from "@chakra-ui/react";
 import React, { ReactElement } from "react";
 import { SubmitHandler } from "react-hook-form";
 
