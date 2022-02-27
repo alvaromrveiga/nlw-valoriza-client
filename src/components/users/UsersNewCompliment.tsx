@@ -5,6 +5,7 @@ import {
   Image,
   Spinner,
   Text,
+  useBreakpointValue,
   useToast,
   VStack,
 } from "@chakra-ui/react";
@@ -93,27 +94,33 @@ export function UsersNewCompliment({
     }
   };
 
+  const inputSize = useBreakpointValue({
+    base: "sm",
+    sm: "xs",
+    md: "sm",
+  });
+
   return (
     <Flex w="30.4vw" h="100vh" justify="center" align="center">
       <VStack h="100%" w="100%">
         <Flex h="20%" w="100%" justify="center" align="center">
           <Image
             src={"user.png"}
-            w={["3rem", "5rem"]}
-            h={["3rem", "4rem"]}
+            w={["3rem", "3.5rem", "5rem"]}
+            h={["3rem", "3rem", "4rem"]}
             pr="1vw"
           />
           <Text
             textAlign="center"
             fontWeight="700"
-            fontSize={["1.25rem", "2rem"]}
+            fontSize={{ base: "1.25rem", md: "2rem" }}
           >
             Bem vindo!
           </Text>
         </Flex>
         <Box h="75%" w="88%">
           <VStack
-            spacing="5vh"
+            spacing={["5vh", "3.5vh", "5vh"]}
             align="center"
             justify="center"
             backgroundColor="black"
@@ -121,59 +128,78 @@ export function UsersNewCompliment({
           >
             <Text
               fontWeight="600"
-              fontSize={["0.675rem", "1.5rem"]}
+              fontSize={{ base: "0.675rem", md: "1.5rem" }}
               color="white"
               textAlign="center"
               mt="3vh"
+              paddingX="1vw"
             >
               Fazer um novo cumprimento
             </Text>
-            <VStack w="75%" spacing="5vh" as="form">
+            <VStack w="75%" spacing={["5vh", "5vh", "5vh"]} as="form">
               <Input
                 variant="filled"
-                size="sm"
+                borderRadius="sm"
+                size={inputSize}
+                paddingX="5%"
+                fontSize={["0.5rem", "0.675rem", "0.875rem"]}
                 id="userReceiver"
                 type="text"
                 placeholder="Clique no usuário"
-                _placeholder={{ color: "gray.600" }}
+                _placeholder={{
+                  color: "gray.600",
+                  fontSize: { base: "0.5rem", sm: "0.675rem", md: "1rem" },
+                }}
                 _focus={{ background: "gray.300" }}
                 error={formState.errors.user_receiver}
                 {...register("user_receiver")}
               />
               <Input
                 variant="filled"
-                size="sm"
+                borderRadius="sm"
+                size={inputSize}
+                paddingX="5%"
+                fontSize={["0.5rem", "0.675rem", "0.875rem"]}
                 id="tagId"
                 type="text"
                 placeholder="Clique na tag"
-                _placeholder={{ color: "gray.600" }}
+                _placeholder={{
+                  color: "gray.600",
+                  fontSize: { base: "0.5rem", sm: "0.675rem", md: "1rem" },
+                }}
                 _focus={{ background: "gray.300" }}
                 error={formState.errors.tag_id}
                 {...register("tag_id")}
               />
               <Textarea
                 h="20vh"
-                mb="6vh"
+                mb={["6vh", "4.5vh", "6vh"]}
                 variant="filled"
-                size="sm"
+                borderRadius="sm"
+                paddingY={["10%", "3%"]}
+                paddingX="5%"
+                fontSize={["0.5rem", "0.675rem", "0.875rem"]}
                 id="message"
                 placeholder="Mensagem"
-                _placeholder={{ color: "gray.600" }}
+                _placeholder={{
+                  color: "gray.600",
+                  fontSize: { base: "0.5rem", sm: "0.675rem", md: "1rem" },
+                }}
                 _focus={{ background: "gray.300" }}
                 error={formState.errors.message}
                 {...register("message")}
               />
             </VStack>
           </VStack>
-          <Flex justify="center" mt="3vh" h="20%">
+          <Flex justify="center" mt={["3vh", "2vh", "3vh"]} h="20%">
             <Button
               type="submit"
               onClick={handleSubmit(handleCreate)}
-              w={["75%", "50%"]}
-              h={["50%", "50%"]}
+              w={{ base: "75%", md: "50%" }}
+              h="50%"
               borderRadius="3xl"
               fontWeight="600"
-              fontSize={["0.675rem", "1.5rem"]}
+              fontSize={{ base: "0.675rem", md: "1.5rem" }}
               color="white"
               backgroundColor="black"
             >

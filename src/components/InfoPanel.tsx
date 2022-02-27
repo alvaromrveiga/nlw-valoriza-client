@@ -18,19 +18,24 @@ export function InfoPanel({
       w="100%"
       justify="start"
       align="center"
-      mt="5vh"
+      pt="5vh"
     >
       <Flex h="20%" align="center">
         <Text
           textAlign="center"
           fontWeight="600"
-          fontSize={["0.75rem", "1.25rem"]}
+          fontSize={["0.75rem", "1rem", "1.25rem"]}
         >
           {title}
         </Text>
       </Flex>
 
-      <Box w="90%" h="70%" borderRadius="3xl" backgroundColor={backgroundColor}>
+      <Box
+        w="90%"
+        h="70%"
+        borderRadius={["2xl", "2xl", "3xl"]}
+        backgroundColor={backgroundColor}
+      >
         {children}
       </Box>
     </Flex>

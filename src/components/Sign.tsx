@@ -1,4 +1,12 @@
-import { Button, Flex, Image, Spinner, Text, VStack } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  Image,
+  Spinner,
+  Text,
+  useBreakpointValue,
+  VStack,
+} from "@chakra-ui/react";
 import React, { ReactElement } from "react";
 import { SubmitHandler } from "react-hook-form";
 
@@ -40,16 +48,16 @@ export function Sign({
         <Image
           position="absolute"
           src={icon}
-          w="7rem"
-          h="7rem"
-          top={["3vh", "6vh"]}
+          w={{ base: "7rem", sm: "3.5rem", md: "7rem" }}
+          h={{ base: "7rem", sm: "3.5rem", md: "7rem" }}
+          top={{ base: "3vh", sm: "1vh", md: "6vh" }}
         />
       )}
 
       <VStack
         borderRadius="3xl"
-        w={["90vw", "25vw"]}
-        h={["90vh", "80vh"]}
+        w={{ base: "90vw", md: "25vw" }}
+        h={{ base: "90vh", md: "80vh" }}
         as="form"
       >
         <Flex
@@ -61,7 +69,7 @@ export function Sign({
           align="center"
           backgroundColor="#dccae090"
         >
-          <Text fontWeight="700" fontSize={["1rem", "1.75rem"]} pb="2vh">
+          <Text fontWeight="700" fontSize={["1.5rem", "1.75rem"]} pb="2vh">
             {title}
           </Text>
           {children}
@@ -72,7 +80,7 @@ export function Sign({
           h={["10%", "12%"]}
           borderRadius="3xl"
           fontWeight="700"
-          fontSize={["1rem", "1.75rem"]}
+          fontSize={["1.5rem", "1.75rem"]}
           backgroundColor="#dccae090"
           onClick={handleSubmit}
         >
